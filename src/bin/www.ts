@@ -1,8 +1,8 @@
-// Module dependencies.
-
-import  app from '../app';
+import 'dotenv/config';
+import app from '../app';
 import debug from 'debug';
 import http from 'http';
+import connectDB from '../config/db';
 
 // Get port from environment and store in Express.
 const port = normalizePort(process.env.PORT || '3000');
@@ -13,10 +13,28 @@ const debugLog = debug("express-ts-mongodb:server"); // Tworzy instancję logger
 // Create HTTP server.
 const server = http.createServer(app);
 
-// Listen on provided port, on all network interfaces.
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+// -------- nowa część -----------------
+// Tworzymy asynchroniczną funkcję startową
+const start = async () => {
+  try {
+    // Najpierw łączymy się z bazą
+    await connectDB();
+
+    // Dopiero po sukcesie bazy, odpalamy serwer HTTP
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening', onListening);
+
+  } catch (error) {
+    console.error("🔴 Krytyczny błąd podczas uruchamiania aplikacji:", error);
+    process.exit(1);
+  }
+};
+
+//  Uruchamiamy wszystko
+start();
+
+// -------------------------------------
 
 // Normalize a port into a number, string, or false.
 function normalizePort(val: string): number | string | false {
