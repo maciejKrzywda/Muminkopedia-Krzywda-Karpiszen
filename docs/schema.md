@@ -4,10 +4,10 @@
 | `bestFriend`  | **ObjectId** | Najlepszy przyjaciel Muminka      | `"Chuj"`    |
 | `name`        | **String**   | Nazwa Muminka                     | `"Chuj"`    |
 | `description` | **String**   | Opis Muminka cokolwiek to oznacza | `"Chujowy"` |
-| `gatunek`     | **String**   | Gatunek Muminka                   | `"chujek"`  |
+| `species`     | **String**   | Gatunek Muminka                   | `"chujek"`  |
 | `status`      | **Bool**     | czy postać śpi snem zimowym       | `True`      |
 
-### 2. Collection: `Artefacts`
+### 2. Collection: `Artifacts`
 | Pole          | Typ          | Opis                                          | Przykład                       |
 |:--------------|:-------------|:----------------------------------------------|:-------------------------------|
 | `name`        | **String**   | Nazwa Artefaktu                               | `"chujo-staff"`                |
