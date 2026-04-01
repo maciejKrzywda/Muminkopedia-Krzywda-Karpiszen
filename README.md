@@ -46,7 +46,7 @@ Zanim otworzycie edytor, przygotujcie tablicę na **GitHub Projects** z kolumnam
 ### 📄 Etap 1: Zadanie Inżynierskie (Na dziś!)
 Zanim zaczniecie pisać kod w TS, **Wasza para musi opracować dokument `docs/schema.md`**. Musi on zawierać:
 
-1.  **Model Mongoose:** Strukturę dla `Character` oraz `Artifact` wraz z typami danych.
+1.  **Model Mongoose:** Strukturę dla `CharacterModel` oraz `ArtifactModel` wraz z typami danych.
 2.  **Plan Relacji:** Czy pole `owner` w Artefakcie powinno być zwykłym tekstem, czy magicznym `ObjectId` prowadzącym do Postaci?
 3.  **Lista Endpointów:** Plan tras (np. `POST /api/characters`). 
 

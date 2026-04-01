@@ -1,4 +1,4 @@
-### 1. Collection: `Characters`
+### 1. Collection: `CharacterModel`
 | Pole          | Typ          | Opis                              | Przykład    |
 |:--------------|:-------------|:----------------------------------|:------------|
 | `bestFriend`  | **ObjectId** | Najlepszy przyjaciel Muminka      | `"Chuj"`    |
@@ -7,7 +7,7 @@
 | `species`     | **String**   | Gatunek Muminka                   | `"chujek"`  |
 | `status`      | **Bool**     | czy postać śpi snem zimowym       | `True`      |
 
-### 2. Collection: `Artifacts`
+### 2. Collection: `ArtifactModel`
 | Pole          | Typ          | Opis                                          | Przykład                       |
 |:--------------|:-------------|:----------------------------------------------|:-------------------------------|
 | `name`        | **String**   | Nazwa Artefaktu                               | `"chujo-staff"`                |

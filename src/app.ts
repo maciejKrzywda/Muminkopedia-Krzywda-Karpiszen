@@ -13,7 +13,7 @@ app.use(express.json()); // Parsowanie JSON w requestach
 app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/", (req, res) => {
-    res.json({ message: "API Express + TypeScript działa!" });
+    res.json({ message: "Muminkopedia działa pomyślnie!" });
 });
 
 export default app;
