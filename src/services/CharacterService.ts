@@ -1,6 +1,6 @@
 // to jest CharacterService.ts - to robi service
 
-import {Artifact} from "../models/Character.model";
+import {Character} from "../models/Character.model";
 import {
     createCharacter,
     deleteCharacter,
@@ -9,18 +9,18 @@ import {
 } from "../repositories/CharactersRepository";
 import {Types} from "mongoose";
 
-export async function addCharacter(characterData: Artifact): Promise<Artifact> {
+export async function addCharacter(characterData: Character): Promise<Character> {
     if(!characterData.bestFriend || !characterData.name || !characterData.description || !characterData.species || !characterData.status) {
         throw new Error("Wszystkie pola wymagane (bestFriennd, name, description, status)")
     }
         return await createCharacter(characterData);
 }
 
-export async function fetchCharacter(): Promise<Artifact[]> {
+export async function fetchCharacter(): Promise<Character[]> {
     return await findAllCharacters();
 }
 
-export async function modifyCharacter(characterId: Types.ObjectId, updatedData: Partial<Artifact>): Promise<Artifact> {
+export async function modifyCharacter(characterId: Types.ObjectId, updatedData: Partial<Character>): Promise<Character> {
     const updatedCharacter = await updateCharacter(characterId, updatedData);
 
     if(!updatedCharacter) {
@@ -30,7 +30,7 @@ export async function modifyCharacter(characterId: Types.ObjectId, updatedData: 
     return updatedCharacter;
 }
 
-export async function removeCharacter(characterId: Types.ObjectId): Promise<Artifact> {
+export async function removeCharacter(characterId: Types.ObjectId): Promise<Character> {
     const deletedCharacter = await deleteCharacter(characterId);
 
     if (!deletedCharacter) {

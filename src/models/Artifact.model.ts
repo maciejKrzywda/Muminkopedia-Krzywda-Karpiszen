@@ -7,7 +7,7 @@ export interface Artifact extends Document {
     owner: Types.ObjectId;
 }
 
-const artifactSchema = new Schema({
+const artifactSchema = new Schema<Artifact>({
     name: {type: String, required: true},
     description: {type: String, required: true},
     property: {type: String, required: true},
