@@ -1,6 +1,6 @@
 import {model, Schema, Document, Types} from "mongoose"
 
-export interface Character extends Document {
+export interface Artifact extends Document {
     bestFriend: Types.ObjectId;
     name: string;
     description: string;
@@ -8,7 +8,7 @@ export interface Character extends Document {
     status: boolean;
 }
 
-const moominSchema = new Schema<Character>({
+const moominSchema = new Schema<Artifact>({
     bestFriend: {type: Types.ObjectId, required: false},
     name: {type: String, required: true},
     description: {type: String, required: false},
@@ -16,4 +16,4 @@ const moominSchema = new Schema<Character>({
     status: {type: Boolean, default: false},
 })
 
-export const CharacterModel =  model<Character>('Character', moominSchema)
+export const CharacterModel =  model<Artifact>('Character', moominSchema)
