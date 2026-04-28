@@ -26,7 +26,7 @@ const start = async () => {
     server.on('listening', onListening);
 
   } catch (error) {
-    console.error("🔴 Krytyczny błąd podczas uruchamiania aplikacji:", error);
+    console.error("Krytyczny błąd podczas uruchamiania aplikacji:", error);
     process.exit(1);
   }
 };

@@ -11,6 +11,10 @@ export const findAllCharacters = async (): Promise<Character[]> => {
     return await CharacterModel.find();
 };
 
+export const findACharacter = async (characterId : Types.ObjectId): Promise<Character[] | null> => {
+    return await CharacterModel.findById(characterId);
+};
+
 export const updateCharacter = async (characterId : Types.ObjectId, characterBody : Partial<Character>): Promise<Character | null> => {
     return await CharacterModel.findByIdAndUpdate(characterId, characterBody);
 };

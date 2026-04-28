@@ -10,6 +10,10 @@ export const findAllArtifacts = async (): Promise<Artifact[]> => {
     return await ArtifactModel.find();
 };
 
+export const findAnArtifact = async (artifactId : Types.ObjectId): Promise<Artifact[] | null> => {
+    return await ArtifactModel.findById(artifactId);
+};
+
 export const updateArtifact = async (artifactId : Types.ObjectId, artifactBody : Partial<Artifact>): Promise<Artifact | null> => {
     return await ArtifactModel.findByIdAndUpdate(artifactId, artifactBody);
 };

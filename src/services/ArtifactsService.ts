@@ -2,17 +2,31 @@
 
 import {Artifact} from "../models/Artifact.model";
 import {Types} from "mongoose";
-import {createArtifact, deleteArtifact, findAllArtifacts, updateArtifact} from "../repositories/ArtifactsRepository";
+import {createArtifact,
+    deleteArtifact,
+    findAllArtifacts,
+    findAnArtifact,
+    updateArtifact
+} from "../repositories/ArtifactsRepository";
 
 export async function addArtifacts(artifactData: Artifact): Promise<Artifact> {
     if(!artifactData.owner || !artifactData.name || !artifactData.description || !artifactData.property) {
-        throw new Error("Wszystkie pola wymagane (owner, name, description, property)")
+        throw new Error("Wszystkie pola wymagane: owner, name, description, property")
     }
     return await createArtifact(artifactData);
 }
 
-export async function fetchArtifact(): Promise<Artifact[]> {
+export async function fetchArtifacts(): Promise<Artifact[]> {
     return await findAllArtifacts();
+}
+
+export async function fetchArtifact(artifactId: Types.ObjectId): Promise<Artifact[]> {
+    const fetchedArtifact = await findAnArtifact(artifactId);
+
+    if (!fetchedArtifact) {
+        throw new Error("Nie znaleziono artefaktu")
+    }
+    return fetchedArtifact;
 }
 
 export async function modifyArtefact(artifactId: Types.ObjectId, updatedData: Partial<Artifact>): Promise<Artifact> {
